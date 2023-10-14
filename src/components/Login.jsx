@@ -1,4 +1,4 @@
-// Login.js (React example)
+import './Login.css';
 import React, { useState } from 'react';
 
 const Login = () => {
@@ -22,15 +22,16 @@ const Login = () => {
       window.location.href = '/account-balances';
     } else {
       // Handle login error
+      alert('Incorrect username or password');
     }
   };
 
   return (
-    <div>
+    <div className='loginPage'>
       <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        <button type="submit">Login</button>
+        <input className="textFeild" type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+        <input className="textFeild" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <button className="button" type="submit">Login</button>
       </form>
     </div>
   );
