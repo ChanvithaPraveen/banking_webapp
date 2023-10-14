@@ -1,9 +1,12 @@
 import './Login.css';
 import React, { useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+//   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,9 +23,11 @@ const Login = () => {
     if (response.status === 200) {
       // Redirect to the account balances page
       window.location.href = '/account-balances';
+        // navigate('/account-balances');
     } else {
       // Handle login error
       alert('Incorrect username or password');
+    // window.location.href = '/account-balances';
     }
   };
 
