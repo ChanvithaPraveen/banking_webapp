@@ -33,9 +33,13 @@ const Login = () => {
 
   return (
     <div className='loginPage'>
+        <h1 className="heading">Welcome to <br />XMI Bank</h1>
+        <h2 className="subHeading">"Empowering Financial wellness,Expert guidance, Enriching lives"</h2>
       <form onSubmit={handleSubmit}>
         <input className="textFeild" type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+        <br />
         <input className="textFeild" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <br />
         <button className="button" type="submit">Login</button>
       </form>
     </div>
