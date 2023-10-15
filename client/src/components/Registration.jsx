@@ -2,16 +2,26 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import bcrypt from 'bcryptjs';
 
 const Registration = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:3000/registration', {name, email, password})
-        .then(result => console.log(result))
+        axios.post('http://127.0.0.1:3000/registration', {name, email, password})
+        .then(result => {console.log(result)
+            if(result.request.status === 200){
+                alert('Registration Successfull');
+                navigate('/login');
+            } else {
+                alert('Registration Failed');
+            }
+        })
         .catch(err => console.log(err));
     };
 
@@ -58,7 +68,8 @@ const Registration = () => {
                             autoComplete='off'
                             className='form-control rounded-0'
                             name='password'
-                            onChange={(e) => setPassword(e.target.value)}
+                            onChange={(e) => setPassword(bcrypt.hashSync(e.target.value, 10))}
+                            // onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
 

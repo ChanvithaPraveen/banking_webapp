@@ -1,6 +1,7 @@
+const { hash } = require('bcrypt');
 const mongoose = require('mongoose');
 
-const EmployeeSchema = new mongoose.Schema({
+const UsersSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -16,7 +17,10 @@ const EmployeeSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-        minlength: 8,
+        minlength: 5,
         maxlength: 1024
     }
 });
+
+const UsersModel = mongoose.model('Users', UsersSchema);
+module.exports = UsersModel;
