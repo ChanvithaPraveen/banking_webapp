@@ -3,47 +3,11 @@ import React, { useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-//   const navigate = useNavigate();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    // Send a POST request with username and password to your backend
-    const response = await fetch('/auth/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ username, password }),
-    });
-
-    if (response.status === 200) {
-      // Redirect to the account balances page
-      window.location.href = '/account-balances';
-        // navigate('/account-balances');
-    } else {
-      // Handle login error
-      alert('Incorrect username or password');
-    // window.location.href = '/account-balances';
-    }
-  };
-
-  return (
-    <div className='loginPage'>
-        <h1 className="heading">Welcome to <br />XMI Bank</h1>
-        <h2 className="subHeading">"Empowering Financial wellness,Expert guidance, Enriching lives"</h2>
-      <form onSubmit={handleSubmit}>
-        <input className="textFeild" type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-        <br />
-        <input className="textFeild" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        <br />
-        <button className="button" type="submit">Login</button>
-      </form>
-    </div>
-  );
+    return(
+        <div>
+            <h1>Login</h1>
+        </div>
+    )
 };
 
 export default Login;

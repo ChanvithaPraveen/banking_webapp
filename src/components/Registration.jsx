@@ -1,40 +1,78 @@
-import './Registration.css';
+// import './Registration.css';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Registration = () => {
-    const [username, setUsername] = useState('');
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [passwordConfirm, setPasswordConfirm] = useState('');
-
-    const handleSubmit = async (e) => {
+    
+    const handleSubmit = (e) => {
         e.preventDefault();
-
-        // Send a POST request with username and password to your backend
-        const response = await fetch('/auth/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username, password, passwordConfirm }),
-        });
-
-        if (response.status === 200) {
-            // Redirect to the account balances page
-            window.location.href = '/account-balances';
-        } else {
-            // Handle login error
-            alert('Incorrect username or password');
-        }
+        axios.post('', {name, email, password})
+        .then(result => console.log(result))
+        .catch(err => console.log(err));
     };
 
     return (
-        <div className='registrationPage'>
-            <form onSubmit={handleSubmit}>
-                <input className="textFeild" type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-                <input className="textFeild" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                <input className="textFeild" type="password" placeholder="Confirm Password" value={passwordConfirm} onChange={(e) => setPasswordConfirm(e.target.value)} />
-                <button className="button" type="submit">Register</button>
-            </form>
+        <div className='d-flex justify-content-center align-items-center bg-secondary vh-100'>
+            <div className='bg-white p-3 rounded w-25'>
+                <h2>Register</h2>
+                <form onSubmit={handleSubmit}>
+                    <div className='mb-3'>
+                        <label htmlFor="name" className='name'>
+                            <strong>Name</strong>
+                        </label>
+                        <input
+                            type="text"
+                            placeholder="Enter your name"
+                            autoComplete='off'
+                            className='form-control rounded-0'
+                            name='email'
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                    </div>
+
+                    <div className='mb-3'>
+                        <label htmlFor="email" className='email'>
+                            <strong>Email</strong>
+                        </label>
+                        <input
+                            type="email"
+                            placeholder="Enter your email"
+                            autoComplete='off'
+                            className='form-control rounded-0'
+                            name='email'
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </div>
+                    
+                    <div className='mb-3'>
+                        <label htmlFor="password" className='password'>
+                            <strong>Password</strong>
+                        </label>
+                        <input
+                            type="password"
+                            placeholder="Enter your password"
+                            autoComplete='off'
+                            className='form-control rounded-0'
+                            name='password'
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
+
+                    <button type='submit' className='btn btn-success w-100 rounded-0'>
+                        Register
+                    </button>
+                </form>
+                    <p>Already have an Account</p>
+                    <Link to='/login' type='submit' className='btn btn-default border w-100 bg-light rounded-0 text-decoration-none'>
+                        Login
+                    </Link>
+                
+
+            </div>
         </div>
     );
 };
