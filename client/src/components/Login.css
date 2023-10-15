@@ -4,8 +4,14 @@
     background-repeat: no-repeat; /* Optional: Prevent image from repeating */
     background-position: top;
     box-sizing: border-box;
-    height: 905px;
     width: 100%;
-    margin-top: -27px;
+    margin-top: 0;
     padding: 0px;
 }
+
+/* .loginPage h1 {
+    display: inline-block;
+    color: rgb(221, 240, 112);
+    font-size: 50px;
+    font-weight: 700;
+} */
