@@ -27,6 +27,16 @@ const Users = () => {
             .catch(error => console.log(error));
     }, []);
 
+    const handleDelete = (id) => {
+        axios.delete('http://localhost:3000/deleteUser/'+id)
+        .then(result => {
+            console.log(result)
+            alert('Delete Successfull');
+            window.location.reload();
+        })
+        .catch(error => console.log(error));   
+    };
+
     return (
         <div className='usersPage'>
             <div className="d-flex justify-content-center align-items-center vh-100">
@@ -74,9 +84,11 @@ const Users = () => {
                                             <Link to={`/update-user/${user._id}`} className="btn btn-success">
                                                 <FontAwesomeIcon icon={faEdit} /> Update
                                             </Link>
-                                            <Link to='/delete-user' className="btn btn-danger">
+                                            <button 
+                                                className="btn btn-danger" 
+                                                onClick={(e) => handleDelete(user._id)}>
                                                 <FontAwesomeIcon icon={faTrash} /> Delete
-                                            </Link>
+                                            </button>
                                         </ButtonContainer>
                                         </td>
                                     </tr>

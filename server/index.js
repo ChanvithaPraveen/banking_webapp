@@ -10,6 +10,17 @@ app.use(cors());
 
 mongoose.connect('mongodb://localhost:27017/mybank');
 
+app.delete('/deleteUser/:id', (req, res) => {
+    const id = req.params.id;
+    UsersModel.findByIdAndDelete({ _id:id })
+        .then(users => {
+            res.json(users);
+        })
+        .catch(err => {
+            res.json(err);
+        });
+});
+
 app.put('/updateUser/:id', (req, res) => {
     const id = req.params.id;
     UsersModel.findByIdAndUpdate({_id:id}, {
