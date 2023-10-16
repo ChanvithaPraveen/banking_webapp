@@ -1,4 +1,5 @@
 import './App.css';
+import Home from './components/Home';
 import Login from './components/Login';
 import Registration from './components/Registration';
 import AccountBalances from './components/AccountBalances';
@@ -10,15 +11,12 @@ import UpdateUser from './components/UpdateUser';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Users />} />
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/users" element={<Users />} />

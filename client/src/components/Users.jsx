@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import "./Users.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faTrash, faUserPlus } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faTrash, faUserPlus, faHome } from "@fortawesome/free-solid-svg-icons";
 
 
 const ButtonContainer = ({ children }) => (
@@ -31,9 +31,18 @@ const Users = () => {
         <div className='usersPage'>
             <div className="d-flex justify-content-center align-items-center vh-100">
                 <div className='p-4 rounded w-90'>
-                    <Link to='/registration' className="btn btn-success">
-                        <FontAwesomeIcon icon={faUserPlus} /> Add
-                    </Link>
+                <div className="row">
+                    <div className="col-6 text-start">
+                        <Link to="/" className="btn btn-primary">
+                            <FontAwesomeIcon icon={faHome} /> Home
+                        </Link>
+                    </div>
+                    <div className="col-6 text-end">
+                        <Link to='/registration' className="btn btn-success">
+                            <FontAwesomeIcon icon={faUserPlus} /> Add
+                        </Link>
+                    </div>
+                </div>
                     <br/><br/>
                     <table className="table">
                         <thead>

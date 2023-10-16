@@ -67,9 +67,10 @@ const UpdateUser = () => {
         <div className='updatePage'>
             <div className='d-flex justify-content-center align-items-center vh-100 update'>
                 <div className='p-4 rounded w-90'>
-                    <Link to="/users" className="btn btn-success">
+                    <Link to="/" className="btn btn-primary ">
                         <FontAwesomeIcon icon={faHome} /> Home
                     </Link>
+                    
                     <br /><br />
                     <h2>Update User</h2>
                     <form onSubmit={handleUpdate} className="row">
