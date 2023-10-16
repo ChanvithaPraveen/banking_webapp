@@ -10,6 +10,16 @@ app.use(cors());
 
 mongoose.connect('mongodb://localhost:27017/mybank');
 
+app.get('/users', (req, res) => {
+    UsersModel.find({})
+        .then(users => {
+            res.json(users);
+        })
+        .catch(err => {
+            res.json(err);
+        });
+});
+
 app.post('/login', (req, res) => {
     const { email, password } = req.body;
     console.log("email", email);

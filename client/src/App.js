@@ -5,6 +5,8 @@ import AccountBalances from './components/AccountBalances';
 import BillPayment from './components/BillPayment';
 import TransactionHistory from './components/TransactionHistory';
 import FundTransfer from './components/FundTransfer';
+import Users from './components/Users';
+import UpdateUser from './components/UpdateUser';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -13,9 +15,11 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Registration />} />
+          <Route path="/" element={<Users />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registration" element={<Registration />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/update-user/" element={<UpdateUser />} />
           <Route path="/account-balances" element={<AccountBalances />} />
           <Route path="/bill-payment" element={<BillPayment />} />
           <Route path="/transaction-history" element={<TransactionHistory />} />
