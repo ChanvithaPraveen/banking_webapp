@@ -10,6 +10,39 @@ app.use(cors());
 
 mongoose.connect('mongodb://localhost:27017/mybank');
 
+app.put('/updateUser/:id', (req, res) => {
+    const id = req.params.id;
+    UsersModel.findByIdAndUpdate({_id:id}, {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        phone: req.body.phone,
+        email: req.body.email,
+        gender: req.body.gender,
+        nic: req.body.nic,
+        password: req.body.password,
+        // rePassword: req.body.rePassword,
+    }
+    )
+    .then(users => {
+        res.json(users);
+    })
+    .catch(err => {
+        res.json(err);
+    });
+});
+
+app.get('/getUser/:id', (req, res) => {
+    const id = req.params.id;
+    UsersModel.findById({ _id:id })
+        .then(users => {
+            res.json(users);
+        })
+        .catch(err => {
+            res.json(err);
+        });
+
+});
+
 app.get('/users', (req, res) => {
     UsersModel.find({})
         .then(users => {

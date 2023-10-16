@@ -18,7 +18,7 @@ const Login = () => {
         .then(result => {console.log(result)
             if(result.data.status === 'ok'){
                 alert('Login Successfull');
-                navigate('/transaction-history');
+                navigate('/users');
             } else {
                 alert('Login Failed');
                 console.log(result);

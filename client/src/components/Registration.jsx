@@ -42,11 +42,7 @@ const Registration = () => {
                 console.log('Passwords do not match');
                 alert('Passwords do not match');
             }
-        });
-        
-        
-
-        
+        });    
     };
 
     return (

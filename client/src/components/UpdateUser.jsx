@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import bcrypt from 'bcryptjs';
 import { useNavigate } from 'react-router-dom';
+import "./UpdateUser.css";
+import { useParams } from "react-router-dom";
+
 
 const UpdateUser = () => {
+    const { id } = useParams();
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -13,20 +17,44 @@ const UpdateUser = () => {
     const [gender, setGender] = useState('');
     const [nic, setNic] = useState('');
     const [password, setPassword] = useState('');
-    const [rePassword, setRePassword] = useState('');
 
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-        
+    useEffect(() => {
+        axios.get('http://localhost:3000/getUser/'+id)
+            .then(result => {
+                console.log(result);
+                setFirstName(result.data.firstName);
+                setLastName(result.data.lastName);
+                setPhone(result.data.phone);
+                setEmail(result.data.email);
+                setGender(result.data.gender);
+                setNic(result.data.nic);
+                setPassword(result.data.password);
+            })
+            .catch(error => console.log(error));
+    }, []);
+
+    const handleUpdate = (e) => {
+        axios.put('http://127.0.0.1:3000/updateUser/'+id, {firstName, lastName, email, phone, gender, nic, password})
+            .then(result => {console.log(result)
+                console.log(gender);
+                if(result.request.status === 200){
+                    alert('Update Successfull');
+                    navigate('/users');
+                } else {
+                    alert('Update Failed');
+                }
+            })
+            .catch(err => console.log(err));
     };
 
     return (
-        <div className='registrationPage'>
-            <div className='d-flex justify-content-center align-items-center vh-100'>
-                <div className='bg-white p-3 rounded w-90'>
+        <div className='updatePage'>
+            <div className='d-flex justify-content-center align-items-center vh-100 update'>
+                <div className='p-4 rounded w-90'>
                     <h2>Update User</h2>
-                    <form onSubmit={handleSubmit} className="row">
+                    <form onSubmit={handleUpdate} className="row">
                         {/* Left Column */}
                         <div className="col-md-6">
                             <div className='mb-3'>
@@ -39,6 +67,7 @@ const UpdateUser = () => {
                                     autoComplete='off'
                                     className='form-control rounded-0'
                                     name='fname'
+                                    value={firstName}
                                     onChange={(e) => setFirstName(e.target.value)}
                                 />
                             </div>
@@ -53,6 +82,7 @@ const UpdateUser = () => {
                                     autoComplete='off'
                                     className='form-control rounded-0'
                                     name='phone'
+                                    value={phone}
                                     onChange={(e) => setPhone(e.target.value)}
                                 />
                             </div>
@@ -72,7 +102,7 @@ const UpdateUser = () => {
                                 </select>
                             </div>
 
-                            <div className='mb-3'>
+                            {/* <div className='mb-3'>
                                 <label htmlFor="password" className='password'>
                                     <strong>Password</strong>
                                 </label>
@@ -82,9 +112,10 @@ const UpdateUser = () => {
                                     autoComplete='off'
                                     className='form-control rounded-0'
                                     name='password'
+                                    value={password}
                                     onChange={(e) => setPassword(bcrypt.hashSync(e.target.value, 10))}
                                 />
-                            </div>
+                            </div> */}
 
                             
                         </div>
@@ -101,6 +132,7 @@ const UpdateUser = () => {
                                     autoComplete='off'
                                     className='form-control rounded-0'
                                     name='lastName'
+                                    value={lastName}
                                     onChange={(e) => setLastName(e.target.value)}
                                 />
                             </div>
@@ -115,6 +147,7 @@ const UpdateUser = () => {
                                     autoComplete='off'
                                     className='form-control rounded-0'
                                     name='email'
+                                    value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
                             </div>
@@ -129,11 +162,12 @@ const UpdateUser = () => {
                                     autoComplete='off'
                                     className='form-control rounded-0'
                                     name='nic'
+                                    value={nic}
                                     onChange={(e) => setNic(e.target.value)}
                                 />
                             </div>
 
-                            <div className='mb-3'>
+                            {/* <div className='mb-3'>
                                 <label htmlFor="rePassword" className='rePassword'>
                                     <strong>Re-Password</strong>
                                 </label>
@@ -143,14 +177,15 @@ const UpdateUser = () => {
                                     autoComplete='off'
                                     className='form-control rounded-0'
                                     name='rePassword'
+                                    value={rePassword}
                                     // onChange={(e) => setRePassword(bcrypt.hashSync(e.target.value, 10))}
                                     onChange={(e) => setRePassword(e.target.value)}
                                 />
-                            </div>
+                            </div> */}
 
                         </div>
 
-                        <button type='submit' className='btn btn-success w-80 rounded-0'>
+                        <button type='submit' className='btn btn-success w-100 rounded-10'>
                             Update
                         </button>
                     </form>
