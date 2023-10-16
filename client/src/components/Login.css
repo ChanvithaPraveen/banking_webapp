@@ -9,6 +9,16 @@
     padding: 0px;
 }
 
+.d-flex.justify-content-center.align-items-center.vh-100.login {
+    /* Add right margin */
+    margin-left: 900px; /* Adjust the value as needed */
+}
+
+.p-3.rounded.w-50 {
+    background-color: #dfe1d6;
+    opacity: 0.92;
+    
+}
 /* .loginPage h1 {
     display: inline-block;
     color: rgb(221, 240, 112);

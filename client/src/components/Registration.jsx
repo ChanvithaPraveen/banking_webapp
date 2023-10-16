@@ -51,8 +51,8 @@ const Registration = () => {
 
     return (
         <div className='registrationPage'>
-            <div className='d-flex justify-content-center align-items-center vh-100'>
-                <div className='bg-white p-3 rounded w-90'>
+            <div className='d-flex ml-100 justify-content-center align-items-center vh-100 register'>
+                <div className='p-4 rounded w-90'>
                     <h2>Register</h2>
                     <form onSubmit={handleSubmit} className="row">
                         {/* Left Column */}
@@ -178,13 +178,13 @@ const Registration = () => {
 
                         </div>
 
-                        <button type='submit' className='btn btn-success w-100 rounded-0'>
+                        <button type='submit' className='btn btn-success w-100 rounded-10'>
                             Register
                         </button>
                     </form>
 
                         <p>Already have an Account</p>
-                        <Link to='/login' type='submit' className='btn btn-default border w-100 bg-light rounded-0 text-decoration-none'>
+                        <Link to='/login' type='submit' className='btn btn-secondary border w-100 rounded-10 text-decoration-none align-items-center'>
                             Login
                         </Link>
                     

@@ -31,8 +31,8 @@ const Login = () => {
     return(
         <div className='loginPage'>
             {/* <h1>Welcome to <br />XMI Bank</h1> */}
-            <div className='d-flex justify-content-center align-items-center vh-100'>
-                <div className='bg-white p-3 rounded w-25'>
+            <div className='d-flex justify-content-center align-items-center vh-100 login'>
+                <div className='p-3 rounded w-50'>
                     <h2>Login</h2>
                     <form onSubmit={handleSubmit}>
                         <div className='mb-3'>
@@ -63,13 +63,13 @@ const Login = () => {
                             />
                         </div>
 
-                        <button type='submit' className='btn btn-success w-100 rounded-0'>
+                        <button type='submit' className='btn btn-success w-100 rounded-10'>
                             Login
                         </button>
                     </form>
 
                     <p>Haven't an Account</p>
-                    <Link to='/registration' type='submit' className='btn btn-default border w-100 bg-light rounded-0 text-decoration-none'>
+                    <Link to='/registration' type='submit' className='btn btn-secondary border w-100 bg-brown rounded-10 text-decoration-none'>
                         Register
                     </Link>
                 </div>
