@@ -44,12 +44,6 @@ const UsersSchema = new mongoose.Schema({
         minlength: 2,
         maxlength: 1024
     },
-    rePassword: {
-        type: String,
-        required: true,
-        minlength: 2,
-        maxlength: 1024
-    },
 });
 
 const UsersModel = mongoose.model('Users', UsersSchema);

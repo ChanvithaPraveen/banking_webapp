@@ -18,17 +18,35 @@ const Registration = () => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://127.0.0.1:3000/registration', {firstName, lastName, phone, email, gender, nic, password, rePassword})
-        .then(result => {console.log(result)
-            console.log(gender);
-            if(result.request.status === 200){
-                alert('Registration Successfull');
-                navigate('/login');
+
+        bcrypt.compare(rePassword, password, (err, result) => {
+            if (err) {
+                // Handle the error
+                alert('Error');
+            } else if (result) {
+                // Passwords match
+                console.log('Passwords match');
+                axios.post('http://127.0.0.1:3000/registration', {firstName, lastName, phone, email, gender, nic, password})
+                    .then(result => {console.log(result)
+                        console.log(gender);
+                        if(result.request.status === 200){
+                            alert('Registration Successfull');
+                            navigate('/login');
+                        } else {
+                            alert('Registration Failed');
+                        }
+                    })
+                    .catch(err => console.log(err));
             } else {
-                alert('Registration Failed');
+                // Passwords do not match
+                console.log('Passwords do not match');
+                alert('Passwords do not match');
             }
-        })
-        .catch(err => console.log(err));
+        });
+        
+        
+
+        
     };
 
     return (
@@ -45,7 +63,7 @@ const Registration = () => {
                                 </label>
                                 <input
                                     type="text"
-                                    placeholder="Enter your first name"
+                                    placeholder="Enter your first name "
                                     autoComplete='off'
                                     className='form-control rounded-0'
                                     name='fname'
@@ -153,7 +171,8 @@ const Registration = () => {
                                     autoComplete='off'
                                     className='form-control rounded-0'
                                     name='rePassword'
-                                    onChange={(e) => setRePassword(bcrypt.hashSync(e.target.value, 10))}
+                                    // onChange={(e) => setRePassword(bcrypt.hashSync(e.target.value, 10))}
+                                    onChange={(e) => setRePassword(e.target.value)}
                                 />
                             </div>
 
