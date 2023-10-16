@@ -5,6 +5,9 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import bcrypt from 'bcryptjs';
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignInAlt, faUserPlus } from "@fortawesome/free-solid-svg-icons";
+
 const Registration = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -27,8 +30,8 @@ const Registration = () => {
                 // Passwords match
                 console.log('Passwords match');
                 axios.post('http://127.0.0.1:3000/registration', {firstName, lastName, phone, email, gender, nic, password})
-                    .then(result => {console.log(result)
-                        console.log(gender);
+                    .then(result => {
+                        console.log(result)
                         if(result.request.status === 200){
                             alert('Registration Successfull');
                             navigate('/login');
@@ -175,13 +178,13 @@ const Registration = () => {
                         </div>
 
                         <button type='submit' className='btn btn-success w-100 rounded-10'>
-                            Register
+                            <FontAwesomeIcon icon={faUserPlus} />  Register
                         </button>
                     </form>
 
                         <p>Already have an Account</p>
                         <Link to='/login' type='submit' className='btn btn-secondary border w-100 rounded-10 text-decoration-none align-items-center'>
-                            Login
+                            <FontAwesomeIcon icon={faSignInAlt} />  Login
                         </Link>
                     
 

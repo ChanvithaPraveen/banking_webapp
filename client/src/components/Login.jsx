@@ -5,6 +5,9 @@ import axios from 'axios';
 import bcrypt from 'bcryptjs';
 import { Link } from 'react-router-dom';
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignInAlt, faUserPlus } from "@fortawesome/free-solid-svg-icons";
+
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -64,13 +67,13 @@ const Login = () => {
                         </div>
 
                         <button type='submit' className='btn btn-success w-100 rounded-10'>
-                            Login
+                            <FontAwesomeIcon icon={faSignInAlt} />  Login
                         </button>
                     </form>
 
                     <p>Haven't an Account</p>
                     <Link to='/registration' type='submit' className='btn btn-secondary border w-100 bg-brown rounded-10 text-decoration-none'>
-                        Register
+                        <FontAwesomeIcon icon={faUserPlus} />  Register
                     </Link>
                 </div>
             </div>

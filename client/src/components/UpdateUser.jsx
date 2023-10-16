@@ -6,6 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import "./UpdateUser.css";
 import { useParams } from "react-router-dom";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome, faEdit } from "@fortawesome/free-solid-svg-icons";
+
 
 const UpdateUser = () => {
     const { id } = useParams();
@@ -20,10 +23,16 @@ const UpdateUser = () => {
 
     const navigate = useNavigate();
 
+    const [updateSuccessful, setUpdateSuccessful] = useState(false);
+
     useEffect(() => {
-        axios.get('http://localhost:3000/getUser/'+id)
+        if (updateSuccessful) {
+            console.log(updateSuccessful)
+            navigate('/users');
+        } else {
+            axios.get('http://localhost:3000/getUser/'+id)
             .then(result => {
-                console.log(result);
+                // console.log(result);
                 setFirstName(result.data.firstName);
                 setLastName(result.data.lastName);
                 setPhone(result.data.phone);
@@ -33,15 +42,20 @@ const UpdateUser = () => {
                 setPassword(result.data.password);
             })
             .catch(error => console.log(error));
-    }, []);
+        }
+        
+    }, [id, updateSuccessful]);
 
     const handleUpdate = (e) => {
         axios.put('http://127.0.0.1:3000/updateUser/'+id, {firstName, lastName, email, phone, gender, nic, password})
-            .then(result => {console.log(result)
+            .then(result => {
                 console.log(gender);
                 if(result.request.status === 200){
+                    // navigate('/fund-transfer');
+                    console.log("hello");
+                    setUpdateSuccessful(true);
                     alert('Update Successfull');
-                    navigate('/users');
+                    console.log("hii");         
                 } else {
                     alert('Update Failed');
                 }
@@ -53,6 +67,10 @@ const UpdateUser = () => {
         <div className='updatePage'>
             <div className='d-flex justify-content-center align-items-center vh-100 update'>
                 <div className='p-4 rounded w-90'>
+                    <Link to="/users" className="btn btn-success">
+                        <FontAwesomeIcon icon={faHome} /> Home
+                    </Link>
+                    <br /><br />
                     <h2>Update User</h2>
                     <form onSubmit={handleUpdate} className="row">
                         {/* Left Column */}
@@ -186,8 +204,14 @@ const UpdateUser = () => {
                         </div>
 
                         <button type='submit' className='btn btn-success w-100 rounded-10'>
-                            Update
+                            <FontAwesomeIcon icon={faEdit} /> Update
                         </button>
+
+                        {/* 
+                        <Link to='//users' type='submit' className='btn btn-success border w-100 rounded-10 text-decoration-none align-items-center'>
+                            Update
+                        </Link> 
+                        */}
                     </form>
                 
                 </div>

@@ -5,6 +5,10 @@ import axios from 'axios';
 import { useEffect } from "react";
 import "./Users.css";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTrash, faUserPlus } from "@fortawesome/free-solid-svg-icons";
+
+
 const ButtonContainer = ({ children }) => (
     <div style={{ display: 'flex', gap: '10px' }}>{children}</div>
 );
@@ -27,7 +31,9 @@ const Users = () => {
         <div className='usersPage'>
             <div className="d-flex justify-content-center align-items-center vh-100">
                 <div className='p-4 rounded w-90'>
-                    <Link to='/registration' className="btn btn-success">+Add</Link>
+                    <Link to='/registration' className="btn btn-success">
+                        <FontAwesomeIcon icon={faUserPlus} /> Add
+                    </Link>
                     <br/><br/>
                     <table className="table">
                         <thead>
@@ -56,8 +62,12 @@ const Users = () => {
                                         <td><strong>{user.nic}</strong></td>
                                         <td>
                                         <ButtonContainer>
-                                            <Link to={`/update-user/${user._id}`} className="btn btn-success">Update</Link>
-                                            <Link to='/delete-user' className="btn btn-danger">Delete</Link>
+                                            <Link to={`/update-user/${user._id}`} className="btn btn-success">
+                                                <FontAwesomeIcon icon={faEdit} /> Update
+                                            </Link>
+                                            <Link to='/delete-user' className="btn btn-danger">
+                                                <FontAwesomeIcon icon={faTrash} /> Delete
+                                            </Link>
                                         </ButtonContainer>
                                         </td>
                                     </tr>
