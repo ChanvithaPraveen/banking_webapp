@@ -28,7 +28,7 @@ const TopBar = (props) => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light">
             <div className="container-fluid">
-                <div className="d-flex align-items-center justify-content-between w-100">
+                <div className="d-flex align-items-center justify-content-between w-100 p-0">
                 <div className="navbar-brand">
                     <img src={logo} alt="Logo" />
                 </div>

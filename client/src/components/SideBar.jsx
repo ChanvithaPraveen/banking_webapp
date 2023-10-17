@@ -45,13 +45,13 @@ const Sidebar = () => {
                     <a href="/transaction-history">Transaction History</a>
                 </li>
                 <li>
-                    <a href="/about">About Us</a>
+                    <a href="/about-us">About Us</a>
                 </li>
                 <li>
                     <a href="/services">Services</a>
                 </li>
                 <li>
-                    <a href="/contact">Contact Us</a>
+                    <a href="/contact-us">Contact Us</a>
                 </li>
             </div>
             ) : (

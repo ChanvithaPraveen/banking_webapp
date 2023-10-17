@@ -5,9 +5,11 @@ import axios from 'axios';
 import { useEffect } from "react";
 import "./Users.css";
 import Sidebar from "./SideBar";
+import TopBar from "./TopBar";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash, faUserPlus, faHome } from "@fortawesome/free-solid-svg-icons";
+
 
 
 const ButtonContainer = ({ children }) => (
@@ -42,6 +44,8 @@ const Users = () => {
         <div className='usersPage'>
 
         <Sidebar />
+
+        <TopBar />
 
             <div className="d-flex justify-content-center align-items-center vh-100 users">
                 <div className='p-4 rounded w-90'>

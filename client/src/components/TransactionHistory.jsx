@@ -4,8 +4,6 @@ import logo from '../assets/logo.png';
 import Sidebar from "./SideBar";
 import TopBar from "./TopBar";
 
-
-
 const TransactionHistory = () => {
     //create function to see transaction History
     return(
