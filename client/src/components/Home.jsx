@@ -19,21 +19,20 @@ const Home = () => {
             <TopBar />
 
             <div className='d-flex justify-content-center align-items-center vh-100'>
-                <div className='p-4 rounded w-90'>
-                    <div className="row">
-                        <div className="col-6 text-start">
-                            {/* <Link to="/" className="btn btn-primary">
-                                <FontAwesomeIcon icon={faHome} /> Home
-                            </Link> */}
-                            <img src={logo} alt="" />
+                <div className='p-4 rounded w-90 home'>
+                    <div className="col">
+                        <div className="row-4 text-center p-2">
+                            <h1>Welcome to XMI Bank</h1>
+                            <h5>Empowering Financial Wellness, Expert Guidance, Enriching Lives.</h5>
                         </div>
-                        <div className="col-6 text-end">
-                            <Link to='/registration' className="btn btn-success">
-                                <FontAwesomeIcon icon={faUser} />
-                            </Link>
+                    </div>
+                    <div className="row-4">
+                        <div className="col text-center ml-2 align-items-center">
+                            <img src={logo} alt="" />
                         </div>
                     </div>
                 </div>
+                    
             </div>
         </div>
     );

@@ -25,3 +25,7 @@
 .nav-item.text-end {
     margin-left: 950px;
 }
+
+.p-4.rounded.w-90.home {
+    opacity: 0.8;
+}
