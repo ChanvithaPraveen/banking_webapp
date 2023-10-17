@@ -42,6 +42,17 @@ app.put('/updateUser/:id', (req, res) => {
     });
 });
 
+app.get('/getUserByEmail/:email', (req, res) => {
+    const email = req.params.email;
+    UsersModel.findOne({ email }) // Replace 'email' with the field name in your MongoDB schema
+        .then(user => {
+            res.json(user);
+        })
+        .catch(err => {
+            res.status(500).json({ error: "User not found" });
+        });
+});
+
 app.get('/getUser/:id', (req, res) => {
     const id = req.params.id;
     UsersModel.findById({ _id:id })

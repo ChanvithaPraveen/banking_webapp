@@ -50,6 +50,7 @@ const Registration = () => {
 
     return (
         <div className='registrationPage'>
+            
             <div className='d-flex ml-100 justify-content-center align-items-center vh-100 register'>
                 <div className='p-4 rounded w-90'>
                     <h2>Register</h2>

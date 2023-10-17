@@ -4,11 +4,17 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import bcrypt from 'bcryptjs';
 import { Link } from 'react-router-dom';
+import Home from './Home';
+import TopBar from './TopBar';
+// import { useHistory } from 'react-router-dom';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignInAlt, faUserPlus } from "@fortawesome/free-solid-svg-icons";
+// import { set } from 'mongoose';
+
 
 const Login = () => {
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -17,11 +23,18 @@ const Login = () => {
         e.preventDefault();
         console.log(email);
         console.log(password);
+        // console.log('sendEmail'+sendEmail);
         axios.post('http://127.0.0.1:3000/login', { email, password})
         .then(result => {console.log(result)
             if(result.data.status === 'ok'){
+                // sendEmail = email;
+                const loggedInEmail = email; // Store the email in a variable
+                setEmail(loggedInEmail); // Update the email state
+                console.log('before'+email)
+                // console.log('after set sendEmail'+sendEmail);
                 alert('Login Successfull');
-                navigate('/users');
+                // history.push("/home", { email: email });
+                navigate('/', { state: { email: loggedInEmail } });
             } else {
                 alert('Login Failed');
                 console.log(result);

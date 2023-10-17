@@ -7,7 +7,8 @@ import "./UpdateUser.css";
 import { useParams } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faEdit, faUser, faBars } from "@fortawesome/free-solid-svg-icons";
+import Sidebar from "./SideBar";
 
 
 const UpdateUser = () => {
@@ -66,10 +67,22 @@ const UpdateUser = () => {
     return (
         <div className='updatePage'>
             <div className='d-flex justify-content-center align-items-center vh-100 update'>
+
+                <Sidebar />
+
                 <div className='p-4 rounded w-90'>
-                    <Link to="/" className="btn btn-primary ">
-                        <FontAwesomeIcon icon={faHome} /> Home
-                    </Link>
+                    <div className="row">
+                        <div className="col-6 text-start">
+                            <Link to="/" className="btn btn-primary">
+                                <FontAwesomeIcon icon={faHome} /> Home
+                            </Link>
+                        </div>
+                        <div className="col-6 text-end">
+                            <Link to='/users' className="btn btn-success">
+                                <FontAwesomeIcon icon={faUser} /> Users
+                            </Link>
+                        </div>
+                    </div>
                     
                     <br /><br />
                     <h2>Update User</h2>
