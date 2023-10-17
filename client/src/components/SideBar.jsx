@@ -1,9 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import './SideBar.css';
+import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faArrowLeft, faSignOut } from "@fortawesome/free-solid-svg-icons";
+import Logout from "./Logout";
 
 const Sidebar = () => {
     const [collapsed, setCollapsed] = useState(false);
@@ -52,6 +54,11 @@ const Sidebar = () => {
                 </li>
                 <li>
                     <a href="/contact-us">Contact Us</a>
+                </li>
+
+                {/* add logiut button */}
+                <li>
+                    <Logout />
                 </li>
             </div>
             ) : (
