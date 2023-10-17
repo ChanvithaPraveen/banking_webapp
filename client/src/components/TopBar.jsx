@@ -5,6 +5,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import logo from '../assets/logo.png'; 
 import axios from 'axios';
 import { useEffect, useState } from "react";
+import './TopBar.css'
 
 const TopBar = (props) => {
 
@@ -31,7 +32,7 @@ const TopBar = (props) => {
                 <div className="navbar-brand">
                     <img src={logo} alt="Logo" />
                 </div>
-
+                <h4>{props.data}</h4>
                 <div className="navbar-nav">
                     <li className="nav-item ml-4">
                     <Link to="/registration" className="nav-link">

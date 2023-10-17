@@ -33,10 +33,10 @@ const Sidebar = () => {
                     <a href="/">Home</a>
                 </li>
                 <li>
-                    <a href="/fund-transfer">Fund Transfer</a>
+                    <a href="/users">Users</a>
                 </li>
                 <li>
-                    <a href="/bill-payment">Bill Payment</a>
+                    <a href="/fund-transfer">Fund Transfer</a>
                 </li>
                 <li>
                     <a href="/account-balances">Account Balances</a>
