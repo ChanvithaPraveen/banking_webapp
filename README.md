@@ -1,4 +1,22 @@
-# banking_webapp
+<h1 align="center">
+  <br>
+  Banking Web App
+  <br>
+</h1>
+
+<h4 align="center">Create client and server folder inside the banking_webapp.</h4>
+
+<p align="center">
+  <a href="https://"><img src="https://img.shields.io/badge/language-js-2ea42f?logo=js" alt="language - js"></a>
+  <a href="https://"><img src="https://img.shields.io/badge/language-react-purple?logo=react" alt="language - React"></a>
+  <a href="https://"><img src="https://img.shields.io/badge/language-CSS-red?logo=css" alt="language - CSS"></a>
+  <a href="https://"><img src="https://img.shields.io/badge/language-MongoDB-blue?logo=MongoDB" alt="language - MongoDB"></a>
+  <a href="https://"><img src="https://img.shields.io/badge/Web Site-localhost-orange?logo=WEB" alt="Web Application"></a>
+  <br>
+</p>
+
+
+# Description
 
 ## Steps to Initialize the Project
 
@@ -30,3 +48,6 @@
     - npm install
     - npm install bootsrap react-router-dom
     - npm start
+  
+![Screenshot](1.png)
+![Screenshot](2.png)
