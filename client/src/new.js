@@ -1,2 +1,2 @@
-console.log("hello new.js");
+console.log("new.js");
 
